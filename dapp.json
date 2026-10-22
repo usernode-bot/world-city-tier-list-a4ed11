@@ -1,0 +1,39 @@
+{
+  "description": "Every city we love, ranked by the group",
+  "category": "other",
+  "icon": {
+    "emoji": "📊"
+  },
+  "secrets": [],
+  "governance": {
+    "preset": "you_or_the_group"
+  },
+  "tests": [
+    {
+      "id": "tiers.board",
+      "name": "Your tier list opens with items ready to drag into tiers",
+      "path": "/",
+      "expectSelector": "#board[data-view=\"yours\"] ~ #tray button[data-item]",
+      "visual": true,
+      "impact": [
+        "public/**",
+        "api.js"
+      ]
+    },
+    {
+      "name": "The board switches to the group's ranking",
+      "path": "/",
+      "expectSelector": "#view-toggle button[data-view=\"group\"]"
+    },
+    {
+      "name": "Below F, a Want to row takes the ones not got to yet",
+      "path": "/",
+      "expectSelector": "#board ~ #want[data-drop=\"W\"]"
+    },
+    {
+      "name": "A new item can be added",
+      "path": "/",
+      "expectSelector": "#add-form input[name=\"name\"]"
+    }
+  ]
+}
